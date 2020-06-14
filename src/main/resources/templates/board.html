@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.thymeleaf.org ">
+<head>
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+<div>
+    <div class="firstPlayer firstPlayerStats">
+        <p th:text="${game.player1.name}"></p>
+        <p>Score: <span th:text="${game.player1.score}"></span></p>
+    </div>
+    <div class="whoseTurn">
+        <p th:if="${game.isFinished()==false}">Whose turn is it: <span th:text="${game.activePlayer.name}"></span></p>
+        <p th:if="${game.isFinished()==true}">Game is finished, press Restart to play once more</p>
+    </div>
+    <div class="restart">
+        <form th:action="@{/start}" method="GET">
+            <button type="submit" class="restartButton">
+                Restart the game
+            </button>
+        </form>
+    </div>
+</div>
+<div>
+
+</div>
+<table>
+    <tbody>
+    <tr>
+        <td rowspan="2" class="wide-column">
+            <div class="firstPlayer largePit">
+                <p class="textForLargePit" th:text="${game.pits[0].stonesCount}"></p>
+            </div>
+        </td>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="firstPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player2) || game.pits[13].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[13].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="13">
+                </div>
+            </form>
+        </td>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="firstPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player2) || game.pits[12].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[12].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="12">
+                </div>
+            </form>
+        </td>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="firstPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player2) || game.pits[11].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[11].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="11">
+                </div>
+            </form>
+        </td>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="firstPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player2) || game.pits[10].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[10].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="10">
+                </div>
+            </form>
+        </td>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="firstPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player2) || game.pits[9].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[9].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="9">
+                </div>
+            </form>
+        </td>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="firstPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player2) || game.pits[8].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[8].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="8">
+                </div>
+            </form>
+        </td>
+        <td rowspan="2" class="wide-column">
+            <div class="secondPlayer largePit">
+                <p class="textForLargePit" th:text="${game.pits[7].stonesCount}"></p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="secondPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player1) || game.pits[1].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[1].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="1">
+                </div>
+            </form>
+        </td>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="secondPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player1) || game.pits[2].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[2].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="2">
+                </div>
+            </form>
+        </td>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="secondPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player1) || game.pits[3].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[3].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="3">
+                </div>
+            </form>
+        </td>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="secondPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player1) || game.pits[4].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[4].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="4">
+                </div>
+            </form>
+        </td>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="secondPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player1) || game.pits[5].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[5].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="5">
+                </div>
+            </form>
+        </td>
+        <td class="narrow-column">
+            <form th:action="@{/turn}" method="post">
+                <div class="secondPlayer smallPit">
+                    <button th:disabled="${game.isFinished() || game.activePlayer.equals(game.player1) || game.pits[6].stonesCount==0}"
+                            type="submit"
+                            class="hidden-button">
+                        <p class="textForSmallPit" th:text="${game.pits[6].stonesCount}"></p>
+                    </button>
+                    <input class="hidden-input" type="text" th:name="index" th:value="6">
+                </div>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="secondPlayer secondPlayerStats">
+    <p th:text="${game.player2.name}"></p>
+    <p>Score: <span th:text="${game.player2.score}"></span></p>
+</div>
+</body>
+</html>

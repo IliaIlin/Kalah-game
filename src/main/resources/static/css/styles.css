@@ -1,0 +1,98 @@
+table{
+    width:100%;
+}
+
+.wide-column{
+    width:20%;
+}
+
+.narrow-column{
+    width:10%;
+}
+
+.largePit {
+    height: 10rem;
+    width: 6rem;
+    background-color: white;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 70%;
+    margin:auto;
+}
+
+.smallPit {
+    height: 5rem;
+    width: 5rem;
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 70%;
+    margin:auto;
+}
+
+.textForSmallPit{
+    text-align:center;
+}
+
+.textForLargePit{
+    text-align:center;
+    padding-top: 3.5rem;
+}
+
+.hidden-button{
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    outline: none;
+    cursor:pointer;
+}
+
+.hidden-input{
+    display:none;
+}
+
+.firstPlayerStats{
+    margin-left:7%;
+    float:left;
+    font-size:large;
+}
+
+.secondPlayerStats{
+    margin-right:7%;
+    float:right;
+    font-size:large;
+}
+
+.firstPlayer{
+    color:#B22222;
+    border-color:#B22222;
+}
+
+.secondPlayer{
+    color:#00008B;
+    border-color:#00008B;
+}
+
+.whoseTurn{
+    display:inline-block;
+    margin-left:10%;
+    font-size:large;
+}
+
+.restart{
+    margin-left:10%;
+    display:inline-block;
+}
+
+.restartButton{
+     background: none;
+     border-radius: 3px;
+     background-color: white;
+     color: black;
+     border: 2px solid #555555;
+     font-size:large;
+     cursor:pointer;
+}
